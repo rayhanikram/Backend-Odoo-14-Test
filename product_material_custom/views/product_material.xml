@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- List View -->
+        <record model="ir.ui.view" id="product_material_tree">
+            <field name="name">product.material.tree</field>
+            <field name="model">product.material</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="material_type"/>
+                    <field name="supplier_id"/>
+                    <field name="buy_price"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Form View -->
+        <record model="ir.ui.view" id="product_material_form">
+            <field name="name">product.material.form</field>
+            <field name="model">product.material</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="name"/>
+                                <field name="material_type"/>
+                            </group>
+                            <group>
+                                <field name="supplier_id"/>
+                                <field name="buy_price"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="product_material_action">
+            <field name="name">Product Material</field>
+            <field name="res_model">product.material</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem 
+            id="main_product_material"
+            name="Product Material"
+        />
+
+        <menuitem 
+            id="menu_product_material"
+            name="Product Material"
+            parent="main_product_material"
+            action="product_material_action"
+        />
+
+    </data>
+</odoo>
